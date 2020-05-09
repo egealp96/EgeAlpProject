@@ -40,13 +40,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="FuelType" class="control-label"></label>
-                <select asp-for="FuelType" class="form-control"></select>
-                <span asp-validation-for="FuelType" class="text-danger"></span>
+                <select asp-for="FuelType" class="form-control">
+                    <option value="0">Benzinli</option>
+                    <option value="1">Dizel</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="AvgCons" class="control-label"></label>
                 <input asp-for="AvgCons" class="form-control" />
                 <span asp-validation-for="AvgCons" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tansmission" class="control-label"></label>
+                <select asp-for="Tansmission" class="form-control">
+                    <option value="0">Otomatik</option>
+                    <option value="1">Manuel</option>
+                </select>
+                <span asp-validation-for="Tansmission" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
@@ -79,6 +89,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

@@ -55,6 +55,9 @@ namespace EgeAlpProject.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("Tansmission")
+                        .HasColumnType("int");
+
                     b.Property<int>("VehicleKm")
                         .HasColumnType("int");
 

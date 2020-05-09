@@ -31,9 +31,9 @@
         {
             <li>
                 @image.FileName
-            <img src="~/UserImages/@image.FileName" />
-        </li>
-    }
+                <img src="~/UserImages/@image.FileName" />
+            </li>
+        }
     </ul>
     <form asp-action="UploadImage" enctype="multipart/form-data">
         <input type="hidden" name="CarId" id="CarId" value="@Model.Id" />
