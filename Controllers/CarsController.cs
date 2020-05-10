@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EgeAlpProject.Data;
 using EgeAlpProject.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using EgeAlpProject.ViewModel;
 
 namespace EgeAlpProject.Controllers
 {
     public class CarsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment hostEnvironment;
 
-        public CarsController(ApplicationDbContext context)
+        public CarsController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this.hostEnvironment = hostEnvironment;
         }
 
         // GET: Cars
@@ -25,6 +30,51 @@ namespace EgeAlpProject.Controllers
             var applicationDbContext = _context.Cars.Include(c => c.CarBrand);
             return View(await applicationDbContext.ToListAsync());
         }
+        public async Task<IActionResult> UploadImage(ImageUploadViewModel uploadModel)
+        {
+
+            //string directory= @"C:\Users\Huseyin\source\repos\CetBookStore\CetBookStore\wwwroot\UserImages\";
+            string directory = Path.Combine(hostEnvironment.WebRootPath, "UserImages");
+            string fileName = Guid.NewGuid().ToString() + "_" + uploadModel.ImageFile.FileName;
+
+            string fullPath = Path.Combine(directory, fileName);
+
+            using (var fileStream = new FileStream(fullPath, FileMode.Create))
+            {
+                await uploadModel.ImageFile.CopyToAsync(fileStream);
+            }
+
+            CarImage carImage = new CarImage();
+            carImage.CarId = uploadModel.CarId;
+            carImage.FileName = fileName;
+
+            _context.CarImages.Add(carImage);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(ManageImage), new { id = uploadModel.CarId });
+
+
+        }
+
+
+
+        public async Task<IActionResult> ManageImage(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            var car = await _context.Cars.Include(b => b.CarImages)
+                .FirstOrDefaultAsync(b => b.Id == id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+            return View(car);
+        }
+
+
 
         // GET: Cars/Details/5
         public async Task<IActionResult> Details(int? id)

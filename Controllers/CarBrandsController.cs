@@ -7,23 +7,72 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EgeAlpProject.Data;
 using EgeAlpProject.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using EgeAlpProject.ViewModel;
 
 namespace EgeAlpProject.Controllers
 {
     public class CarBrandsController : Controller
     {
-        private readonly ApplicationDbContext _context;
 
-        public CarBrandsController(ApplicationDbContext context)
+        private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment hostEnvironment;
+
+        public CarBrandsController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this.hostEnvironment = hostEnvironment;
         }
 
         // GET: CarBrands
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CarBrands.ToListAsync());
+            var carBrands = await _context.CarBrands.ToListAsync();
+            return View(carBrands);
         }
+
+        public async Task<IActionResult> UploadImage(ImageUploadViewModel2 uploadModel)
+        {
+
+            //string directory= @"C:\Users\Huseyin\source\repos\CetBookStore\CetBookStore\wwwroot\UserImages\";
+            string directory = Path.Combine(hostEnvironment.WebRootPath, "CarBrandImages");
+            string fileName = Guid.NewGuid().ToString() + "_" + uploadModel.ImageFile.FileName;
+
+            string fullPath = Path.Combine(directory, fileName);
+
+            using (var fileStream = new FileStream(fullPath, FileMode.Create))
+            {
+                await uploadModel.ImageFile.CopyToAsync(fileStream);
+            }
+
+            CarBrandImage carBrandImage = new CarBrandImage();
+            carBrandImage.CarBrandId = uploadModel.CarBrandId;
+            carBrandImage.FileName = fileName;
+
+            _context.CarBrandImages.Add(carBrandImage);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(ManageImage), new { id = uploadModel.CarBrandId });
+
+
+        }
+        public async Task<IActionResult> ManageImage(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            var carBrand = await _context.CarBrands.Include(b => b.CarBrandImages)
+                .FirstOrDefaultAsync(b => b.Id == id);
+            if (carBrand == null)
+            {
+                return NotFound();
+            }
+            return View(carBrand);
+        }
+
 
         // GET: CarBrands/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -33,14 +82,14 @@ namespace EgeAlpProject.Controllers
                 return NotFound();
             }
 
-            var carBrand = await _context.CarBrands
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (carBrand == null)
+            var carbrand = await _context.CarBrands.Include(c => c.Cars)
+                            .FirstOrDefaultAsync(m => m.Id == id);
+            if (carbrand == null)
             {
                 return NotFound();
             }
 
-            return View(carBrand);
+            return View(carbrand);
         }
 
         // GET: CarBrands/Create
