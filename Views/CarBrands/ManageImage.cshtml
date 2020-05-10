@@ -1,4 +1,4 @@
-﻿@model EgeAlpProject.Models.Car
+﻿@model EgeAlpProject.Models.CarBrand
 @{
     ViewData["Title"] = "ManageImage";
 }
@@ -6,7 +6,7 @@
 <h1>Manage Image</h1>
 
 <div>
-    <h4>Car</h4>
+    <h4>Car Brand</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -16,27 +16,20 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CarBrand)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CarBrand)
-        </dd>
-
     </dl>
     <ul>
 
 
-        @foreach (var image in Model.CarImages)
+        @foreach (var image in Model.CarBrandImages)
         {
             <li>
                 @image.FileName
-                <img src="~/UserImages/@image.FileName" />
+                <img src="~/CarBrandImages/@image.FileName" />
             </li>
         }
     </ul>
     <form asp-action="UploadImage" enctype="multipart/form-data">
-        <input type="hidden" name="CarId" id="CarId" value="@Model.Id" />
+        <input type="hidden" name="CarBrandId" id="CarBrandId" value="@Model.Id" />
         <input type="file" name="ImageFile" id="ImageFile" />
         <input type="submit" value="Yükle" />
     </form>

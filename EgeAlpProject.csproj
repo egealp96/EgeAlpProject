@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\CarBrandImages\" />
     <Folder Include="wwwroot\UserImages\" />
   </ItemGroup>
 

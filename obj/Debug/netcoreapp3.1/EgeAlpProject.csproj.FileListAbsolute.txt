@@ -396,3 +396,4 @@ C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\sta
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.dll
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.pdb
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.genruntimeconfig.cache
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\CarBrands\ManageImage.cshtml.g.cs
