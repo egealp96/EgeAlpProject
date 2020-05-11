@@ -41,7 +41,9 @@ namespace EgeAlpProject.Models
         public Decimal Price { get; set; }
         [Display(Name = "Aciklama")]
         public string Description { get; set; }
-        [Display(Name = "Konum Bilgisi")]
+        [Display(Name = "Bulundugu Sehir")]
+        public City city { get; set; }
+        [Display(Name = "Detayli Konum Bilgisi")]
         public string Location { get; set; }
 
         public DateTime CreatedDate { get; set; }
@@ -54,6 +56,13 @@ namespace EgeAlpProject.Models
         {
             Benzinli,
             Dizel
+        }
+
+        public enum City
+        {
+            Istanbul,
+            Ankara,
+            Izmir
         }
 
         public enum Transmission{

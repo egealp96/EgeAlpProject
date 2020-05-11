@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EgeAlpProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200510193135_mercedes")]
-    partial class mercedes
+    [Migration("20200511100324_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -61,6 +61,9 @@ namespace EgeAlpProject.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("VehicleKm")
+                        .HasColumnType("int");
+
+                    b.Property<int>("city")
                         .HasColumnType("int");
 
                     b.Property<int>("year")

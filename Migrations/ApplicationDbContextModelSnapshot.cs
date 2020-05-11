@@ -61,6 +61,9 @@ namespace EgeAlpProject.Migrations
                     b.Property<int>("VehicleKm")
                         .HasColumnType("int");
 
+                    b.Property<int>("city")
+                        .HasColumnType("int");
+
                     b.Property<int>("year")
                         .HasColumnType("int");
 

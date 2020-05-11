@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\CarBrandImages\" />
+    <Folder Include="wwwroot\ImagesForProject\" />
     <Folder Include="wwwroot\UserImages\" />
   </ItemGroup>
 

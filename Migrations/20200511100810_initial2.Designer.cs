@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EgeAlpProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200509185845_Initial")]
-    partial class Initial
+    [Migration("20200511100810_initial2")]
+    partial class initial2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -63,6 +63,9 @@ namespace EgeAlpProject.Migrations
                     b.Property<int>("VehicleKm")
                         .HasColumnType("int");
 
+                    b.Property<int>("city")
+                        .HasColumnType("int");
+
                     b.Property<int>("year")
                         .HasColumnType("int");
 
@@ -87,6 +90,29 @@ namespace EgeAlpProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CarBrands");
+                });
+
+            modelBuilder.Entity("EgeAlpProject.Models.CarBrandImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarBrandId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDefaultImage")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarBrandId");
+
+                    b.ToTable("CarBrandImages");
                 });
 
             modelBuilder.Entity("EgeAlpProject.Models.CarImage", b =>
@@ -368,6 +394,15 @@ namespace EgeAlpProject.Migrations
                 {
                     b.HasOne("EgeAlpProject.Models.CarBrand", "CarBrand")
                         .WithMany("Cars")
+                        .HasForeignKey("CarBrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EgeAlpProject.Models.CarBrandImage", b =>
+                {
+                    b.HasOne("EgeAlpProject.Models.CarBrand", "CarBrand")
+                        .WithMany("CarBrandImages")
                         .HasForeignKey("CarBrandId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
