@@ -15,35 +15,35 @@ namespace EgeAlpProject.Models
 
         [Required]
         [StringLength(255)]
-        [Display(Name = "Baslik")]
+        [Display(Name = "Title")]
         public string Name { get; set; }
 
-        [Display(Name = "Aracin Markasi")]
+        [Display(Name = "Car Brand")]
         public int CarBrandId { get; set; }
         public CarBrand CarBrand { get; set; }
-        [Display(Name = "Aracin modeli")]
+        [Display(Name = "Car Model")]
         public string CarModel { get; set; }
 
-        [Display(Name = "Model Senesi")]
+        [Display(Name = "Model Year")]
         [Required]
         public int year { get; set; }
-        [Display(Name = "KMsi")]
+        [Display(Name = "Odometer")]
         public int VehicleKm { get; set; }
 
-        [Display(Name = "Yakit Tipi")]
+        [Display(Name = "Fuel")]
         public Fueltype FuelType { get; set; }
-        [Display(Name = "Ortalama Yakit Tuketimi")]
+        [Display(Name = "Avg Consumption")]
         public int AvgCons { get; set; }
-        [Display(Name = "Vites")]
+        [Display(Name = "Transmission")]
         public Transmission Tansmission { get; set; }
 
-        [Display(Name = "Gunluk Fiyat")]
+        [Display(Name = "Daily Price")]
         public Decimal Price { get; set; }
-        [Display(Name = "Aciklama")]
+        [Display(Name = "Details")]
         public string Description { get; set; }
-        [Display(Name = "Bulundugu Sehir")]
+        [Display(Name = "City")]
         public City city { get; set; }
-        [Display(Name = "Detayli Konum Bilgisi")]
+        [Display(Name = "Location Details")]
         public string Location { get; set; }
 
         public DateTime CreatedDate { get; set; }
@@ -54,8 +54,8 @@ namespace EgeAlpProject.Models
 
         public enum Fueltype
         {
-            Benzinli,
-            Dizel
+            Gas,
+            Diesel
         }
 
         public enum City
@@ -66,7 +66,7 @@ namespace EgeAlpProject.Models
         }
 
         public enum Transmission{
-            Otomatik, Manuel
+            Automatic, Manual
             }
             
             public virtual List<CarImage> CarImages { get; set; }

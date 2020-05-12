@@ -15,7 +15,7 @@
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-80">
                             <div class="comment-count"></div>
-                            <span>@Model.Cars.Count Adet Ilan Bulundu</span>
+                            <span>@Model.Cars.Count Rental Cars Found</span>
                             <h2>@Model.Name</h2>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                 <div class="cat-cap">
 
                                     <h4>@car.CarBrand.Name | @car.CarModel | @car.Tansmission</h4>
-                                    <p><a class="btn-outline-dark" asp-controller="Cars" asp-action="Details" asp-route-id="@car.Id">Detayina Git</a></p>
+                                    <p><a class="btn-outline-dark" asp-controller="Cars" asp-action="Details" asp-route-id="@car.Id">Details</a></p>
 
                                     <a class="btn-outline-dark" asp-controller="Cars" asp-action="Edit" asp-route-id="@car.Id">Edit</a> <a>|</a>
                                     <a class="btn-outline-dark" asp-controller="Cars" asp-action="Delete" asp-route-id="@car.Id">Delete</a>
