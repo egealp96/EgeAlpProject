@@ -38,7 +38,7 @@
                                             @{
                                                 var imageUrl = item.CarImages?.FirstOrDefault()?.FileName ?? "noimage.jpg";
                                             }
-                                            <div class="d-flex flex-column align-items-center justify-content-center"><img src="~/UserImages/@imageUrl" alt="" style="width:100%"></div>
+                                            <div class="d-flex flex-column align-items-center justify-content-center"><a class="btn-outline-dark" asp-action="Details" asp-route-id="@item.Id"><img src="~/UserImages/@imageUrl" alt="" style="width:100%"></a></div>
                                         </span>
                                     </div>
                                     <div class="cat-cap">

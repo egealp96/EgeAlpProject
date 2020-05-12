@@ -397,3 +397,5 @@ C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.csproj.CoreCompileInputs.cache
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Search.cshtml.g.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SearchPartial.cshtml.g.cs

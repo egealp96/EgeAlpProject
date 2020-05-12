@@ -1,0 +1,12 @@
+﻿@model EgeAlpProject.ViewModel.SearchViewModel
+
+
+    <form class="search-box" asp-controller="Home" asp-action="Search">
+        <div class="input-form">
+            <input tabindex="0" type="search" placeholder="All Cars" asp-for="SearchText">
+        </div>
+        <div class="search-form">
+<button class="btn btn-primary" style="height:100%" type="submit" value="Submit">Search</button>
+</div>
+        <input type="hidden" asp-for="CarBrandId" />
+    </form>

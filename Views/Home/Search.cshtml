@@ -1,0 +1,132 @@
+﻿@model EgeAlpProject.ViewModel.SearchViewModel
+@{
+    ViewData["Title"] = "Search";
+}
+
+
+<div style="padding-left:250px ; padding-top:50px">
+    <h1>Search Result</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Search">
+                <div class="form-group">
+                    <label asp-for="SearchText" class="control-label"></label>
+                    <input asp-for="SearchText" class="form-control" />
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="SearchInDescription" /> @Html.DisplayNameFor(model => model.SearchInDescription)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CarBrandId" class="control-label"></label>
+                    <select asp-for="CarBrandId" class="form-control" asp-items="ViewBag.CarBrandId">
+                        <option value=""> All Car Brands </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MinimumPrice" class="control-label"></label>
+                    <input type="number" class="form-control" asp-for="MinimumPrice" maxlength="6">
+                    <label asp-for="MaximumPrice" class="control-label"></label>
+                    <input type="number" class="form-control" asp-for="MaximumPrice" maxlength="6">
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Ara" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+
+    </div>
+    @if (Model?.Results != null)
+    {
+        <h3> Search Result </h3>
+        <h5> @Model.Results.Count Rental Car Found </h5>
+
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Car Brand
+                        </th>
+                        <th>
+                            Car Model
+                        </th>
+                        <th>
+                            Model Year
+                        </th>
+                        <th>
+                            Odometer
+                        </th>
+                        <th>
+                            Fuel Type
+                        </th>
+                        <th>
+                            Avg. Consumption
+                        </th>
+                        <th>
+                            Transmission
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            City
+                        </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Results)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CarBrand.Name)
+                        </td>
+                        <td>
+                            @item.CarModel
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.year)
+                        </td>
+                        <td>
+                            @item.VehicleKm
+                            @*@Html.DisplayFor(modelItem => item.Price)*@
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FuelType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AvgCons)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tansmission)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.city)
+                        </td>
+                        <td>
+                            <a class="btn-outline-dark" asp-area="Cars" asp-controller="Cars" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+</div>
+
