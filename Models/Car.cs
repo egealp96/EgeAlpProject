@@ -47,6 +47,8 @@ namespace EgeAlpProject.Models
         public string Location { get; set; }
 
         public DateTime CreatedDate { get; set; }
+
+
         public Car()
         {
             CreatedDate = DateTime.Now;
@@ -70,8 +72,9 @@ namespace EgeAlpProject.Models
             }
             
             public virtual List<CarImage> CarImages { get; set; }
+        public virtual List<Comment> Comments { get; set; }
 
-        }
+    }
     }
 
 

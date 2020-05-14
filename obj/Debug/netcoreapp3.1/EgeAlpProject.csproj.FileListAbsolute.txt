@@ -351,7 +351,9 @@ C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\bin\Debug\netcoreapp3.1\run
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.csprojAssemblyReference.cache
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.csproj.CoreCompileInputs.cache
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.RazorAssemblyInfo.cache
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.RazorAssemblyInfo.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.AssemblyInfoInputs.cache
@@ -365,6 +367,7 @@ C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\CarBrands\Details.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\CarBrands\Edit.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\CarBrands\Index.cshtml.g.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\CarBrands\ManageImage.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Cars\Create.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Cars\Delete.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Cars\Details.cshtml.g.cs
@@ -378,9 +381,11 @@ C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Comments\Index.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Search.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SearchPartial.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
@@ -393,9 +398,4 @@ C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\sta
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.dll
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.pdb
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.genruntimeconfig.cache
-C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\CarBrands\ManageImage.cshtml.g.cs
-C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.csproj.CoreCompileInputs.cache
-C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Search.cshtml.g.cs
-C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SearchPartial.cshtml.g.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\EgeAlpProject.csprojAssemblyReference.cache

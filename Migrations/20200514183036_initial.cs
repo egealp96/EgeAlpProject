@@ -239,6 +239,29 @@ namespace EgeAlpProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Comments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(nullable: true),
+                    Detail = table.Column<string>(nullable: true),
+                    Rating = table.Column<int>(nullable: true),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CarId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Comments_Cars_CarId",
+                        column: x => x.CarId,
+                        principalTable: "Cars",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Rentals",
                 columns: table => new
                 {
@@ -255,29 +278,6 @@ namespace EgeAlpProject.Migrations
                         name: "FK_Rentals_Cars_CarId",
                         column: x => x.CarId,
                         principalTable: "Cars",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Comments",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: true),
-                    Detail = table.Column<string>(nullable: true),
-                    Rating = table.Column<int>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    RentalId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Comments", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Comments_Rentals_RentalId",
-                        column: x => x.RentalId,
-                        principalTable: "Rentals",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -337,9 +337,9 @@ namespace EgeAlpProject.Migrations
                 column: "CarBrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_RentalId",
+                name: "IX_Comments_CarId",
                 table: "Comments",
-                column: "RentalId");
+                column: "CarId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rentals_CarId",
@@ -374,13 +374,13 @@ namespace EgeAlpProject.Migrations
                 name: "Comments");
 
             migrationBuilder.DropTable(
+                name: "Rentals");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Rentals");
 
             migrationBuilder.DropTable(
                 name: "Cars");

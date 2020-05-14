@@ -107,7 +107,7 @@ namespace EgeAlpProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,CarBrandId,CarModel,year,VehicleKm,FuelType,AvgCons,Tansmission,Price,Description,Location,CreatedDate")] Car car)
+        public async Task<IActionResult> Create([Bind("Id,Name,CarBrandId,CarModel,year,VehicleKm,FuelType,AvgCons,Tansmission,Price,Description,city,Location,CreatedDate")] Car car)
         {
             car.CreatedDate = DateTime.Now;
             if (ModelState.IsValid)
@@ -142,7 +142,7 @@ namespace EgeAlpProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CarBrandId,CarModel,year,VehicleKm,FuelType,AvgCons,Tansmission,Price,Description,Location,CreatedDate")] Car car)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CarBrandId,CarModel,year,VehicleKm,FuelType,AvgCons,Tansmission,Price,Description,city,Location,CreatedDate")] Car car)
         {
             if (id != car.Id)
             {

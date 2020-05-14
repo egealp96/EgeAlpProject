@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EgeAlpProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200511100810_initial2")]
-    partial class initial2
+    [Migration("20200514183036_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -145,6 +145,9 @@ namespace EgeAlpProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -154,15 +157,12 @@ namespace EgeAlpProject.Migrations
                     b.Property<int?>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int>("RentalId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RentalId");
+                    b.HasIndex("CarId");
 
                     b.ToTable("Comments");
                 });
@@ -419,9 +419,9 @@ namespace EgeAlpProject.Migrations
 
             modelBuilder.Entity("EgeAlpProject.Models.Comment", b =>
                 {
-                    b.HasOne("EgeAlpProject.Models.Rental", "Rental")
-                        .WithMany()
-                        .HasForeignKey("RentalId")
+                    b.HasOne("EgeAlpProject.Models.Car", "Car")
+                        .WithMany("Comments")
+                        .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

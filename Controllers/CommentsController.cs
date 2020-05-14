@@ -22,7 +22,7 @@ namespace EgeAlpProject.Controllers
         // GET: Comments
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Comments.Include(c => c.Rental);
+            var applicationDbContext = _context.Comments.Include(c => c.Car);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace EgeAlpProject.Controllers
             }
 
             var comment = await _context.Comments
-                .Include(c => c.Rental)
+                .Include(c => c.Car)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comment == null)
             {
@@ -48,7 +48,7 @@ namespace EgeAlpProject.Controllers
         // GET: Comments/Create
         public IActionResult Create()
         {
-            ViewData["RentalId"] = new SelectList(_context.Rentals, "Id", "Id");
+            ViewData["CarId"] = new SelectList(_context.Cars, "Id", "Name");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace EgeAlpProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Detail,Rating,CreatedDate,RentalId")] Comment comment)
+        public async Task<IActionResult> Create([Bind("Id,Title,Detail,Rating,CreatedDate,CarId")] Comment comment)
         {
             comment.CreatedDate = DateTime.Now;
             if (ModelState.IsValid)
@@ -66,7 +66,7 @@ namespace EgeAlpProject.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RentalId"] = new SelectList(_context.Rentals, "Id", "Id", comment.RentalId);
+            ViewData["CarId"] = new SelectList(_context.Cars, "Id", "Name", comment.CarId);
             return View(comment);
         }
 
@@ -83,7 +83,7 @@ namespace EgeAlpProject.Controllers
             {
                 return NotFound();
             }
-            ViewData["RentalId"] = new SelectList(_context.Rentals, "Id", "Id", comment.RentalId);
+            ViewData["CarId"] = new SelectList(_context.Cars, "Id", "Name", comment.CarId);
             return View(comment);
         }
 
@@ -92,7 +92,7 @@ namespace EgeAlpProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Detail,Rating,CreatedDate,RentalId")] Comment comment)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Detail,Rating,CreatedDate,CarId")] Comment comment)
         {
             if (id != comment.Id)
             {
@@ -119,7 +119,7 @@ namespace EgeAlpProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RentalId"] = new SelectList(_context.Rentals, "Id", "Id", comment.RentalId);
+            ViewData["CarId"] = new SelectList(_context.Cars, "Id", "Name", comment.CarId);
             return View(comment);
         }
 
@@ -132,7 +132,7 @@ namespace EgeAlpProject.Controllers
             }
 
             var comment = await _context.Comments
-                .Include(c => c.Rental)
+                .Include(c => c.Car)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comment == null)
             {

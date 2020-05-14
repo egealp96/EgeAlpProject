@@ -15,8 +15,8 @@ namespace EgeAlpProject.Models
         public int? Rating { get; set; }
         public DateTime CreatedDate { get; set; }
 
-        public int RentalId { get; set; }
-        public Rental Rental { get; set; }
+        public int CarId { get; set; }
+        public Car Car { get; set; }
 
 
     }

@@ -68,8 +68,6 @@ namespace EgeAlpProject.Controllers
             {
                 cars = cars.Where(b => b.CarBrandId == searchModel.CarBrandId.Value);
             }
-
-
             if (searchModel.MinimumPrice.HasValue)
             {
                 cars = cars.Where(b => b.Price >= searchModel.MinimumPrice.Value);
