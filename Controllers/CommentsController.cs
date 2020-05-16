@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EgeAlpProject.Data;
 using EgeAlpProject.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace EgeAlpProject.Controllers
 {
     public class CommentsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment hostEnvironment;
 
-        public CommentsController(ApplicationDbContext context)
+        public CommentsController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this.hostEnvironment = hostEnvironment;
         }
 
         // GET: Comments

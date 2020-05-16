@@ -1,7 +1,7 @@
 ﻿@model EgeAlpProject.Models.Car
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.Name;
 }
 
 <html class="js sizes no-customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox picture srcset webworkers" lang="zxx">
@@ -131,7 +131,150 @@
                 </div>
             </div>
         </div>
-        
+
+
+        <section class="blog_area single-post-area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 posts-list">
+
+
+                        <div class="blog-author">
+                            <div class="media align-items-center">
+                                <img alt="" src="assets/img/blog/author.png">
+                                <div class="media-body">
+
+                                    <h4>@Model.Comments.Count Comments Found</h4>
+
+
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        @foreach (var item in Model.Comments)
+                        {
+                            <div class="comments-area">
+                                <h4>05 Comments</h4>
+                                <div class="comment-list">
+                                    <div class="single-comment justify-content-between d-flex">
+                                        <div class="user justify-content-between d-flex">
+                                            <div class="thumb">
+                                                <img alt="" src="assets/img/comment/comment_1.png">
+                                            </div>
+                                            <div class="desc">
+                                                <p class="comment">
+                                                   @item.Detail
+                                                </p>
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <h5>
+                                                            <a href="#">Emilly Blunt</a>
+                                                        </h5>
+                                                        <p class="date">December 4, 2017 at 3:12 pm </p>
+                                                    </div>
+                                                    <div class="reply-btn">
+                                                        <a class="btn-reply text-uppercase" href="#">reply</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment-list">
+                                    <div class="single-comment justify-content-between d-flex">
+                                        <div class="user justify-content-between d-flex">
+                                            <div class="thumb">
+                                                <img alt="" src="assets/img/comment/comment_2.png">
+                                            </div>
+                                            <div class="desc">
+                                                <p class="comment">
+                                                    Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
+                                                    Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                                </p>
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <h5>
+                                                            <a href="#">Emilly Blunt</a>
+                                                        </h5>
+                                                        <p class="date">December 4, 2017 at 3:12 pm </p>
+                                                    </div>
+                                                    <div class="reply-btn">
+                                                        <a class="btn-reply text-uppercase" href="#">reply</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment-list">
+                                    <div class="single-comment justify-content-between d-flex">
+                                        <div class="user justify-content-between d-flex">
+                                            <div class="thumb">
+                                                <img alt="" src="assets/img/comment/comment_3.png">
+                                            </div>
+                                            <div class="desc">
+                                                <p class="comment">
+                                                    Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
+                                                    Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                                </p>
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <h5>
+                                                            <a href="#">Emilly Blunt</a>
+                                                        </h5>
+                                                        <p class="date">December 4, 2017 at 3:12 pm </p>
+                                                    </div>
+                                                    <div class="reply-btn">
+                                                        <a class="btn-reply text-uppercase" href="#">reply</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                            <div class="comment-form">
+                                <h4>Leave a Reply</h4>
+                                <form class="form-contact comment_form" id="commentForm" action="#">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <textarea name="comment" class="form-control w-100" id="comment" placeholder="Write Comment" rows="9" cols="30"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input name="name" class="form-control" id="name" type="text" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input name="email" class="form-control" id="email" type="email" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <input name="website" class="form-control" id="website" type="text" placeholder="Website">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="button button-contactForm btn_1 boxed-btn" type="submit">Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+                                    
+
+
     </main>
 
     <!-- Scroll Up -->

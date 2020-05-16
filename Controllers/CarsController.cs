@@ -27,7 +27,7 @@ namespace EgeAlpProject.Controllers
         // GET: Cars
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Cars.Include(c => c.CarBrand);
+            var applicationDbContext = _context.Cars.Include(c => c.CarBrand).Include(c=> c.CarImages);
             return View(await applicationDbContext.ToListAsync());
         }
         public async Task<IActionResult> UploadImage(ImageUploadViewModel uploadModel)
@@ -35,8 +35,7 @@ namespace EgeAlpProject.Controllers
 
             //string directory= @"C:\Users\Huseyin\source\repos\CetBookStore\CetBookStore\wwwroot\UserImages\";
             string directory = Path.Combine(hostEnvironment.WebRootPath, "UserImages");
-            string fileName = Guid.NewGuid().ToString() + "_" + uploadModel.ImageFile.FileName;
-
+            string fileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(uploadModel.ImageFile.FileName);
             string fullPath = Path.Combine(directory, fileName);
 
             using (var fileStream = new FileStream(fullPath, FileMode.Create))
@@ -85,7 +84,7 @@ namespace EgeAlpProject.Controllers
             }
 
             var car = await _context.Cars
-                .Include(c => c.CarBrand)
+                .Include(c => c.CarBrand).Include(c=>c.CarImages).Include(c=>c.Comments)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (car == null)
             {

@@ -72,7 +72,7 @@ namespace EgeAlpProject.Models
             }
             
             public virtual List<CarImage> CarImages { get; set; }
-        public virtual List<Comment> Comments { get; set; }
+            public virtual List<Comment> Comments { get; set; }
 
     }
     }

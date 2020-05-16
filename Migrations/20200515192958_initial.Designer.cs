@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EgeAlpProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200514183036_initial")]
+    [Migration("20200515192958_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -28,8 +28,8 @@ namespace EgeAlpProject.Controllers
         // GET: CarBrands
         public async Task<IActionResult> Index()
         {
-            var carBrands = await _context.CarBrands.ToListAsync();
-            return View(carBrands);
+            var applicationDbContext = _context.CarBrands.Include(c => c.CarBrandImages);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         public async Task<IActionResult> UploadImage(ImageUploadViewModel2 uploadModel)
@@ -37,7 +37,7 @@ namespace EgeAlpProject.Controllers
 
             //string directory= @"C:\Users\Huseyin\source\repos\CetBookStore\CetBookStore\wwwroot\UserImages\";
             string directory = Path.Combine(hostEnvironment.WebRootPath, "CarBrandImages");
-            string fileName = Guid.NewGuid().ToString() + "_" + uploadModel.ImageFile.FileName;
+            string fileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName( uploadModel.ImageFile.FileName);
 
             string fullPath = Path.Combine(directory, fileName);
 
