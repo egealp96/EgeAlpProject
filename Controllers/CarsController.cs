@@ -27,7 +27,7 @@ namespace EgeAlpProject.Controllers
         // GET: Cars
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Cars.Include(c => c.CarBrand).Include(c=> c.CarImages);
+            var applicationDbContext = _context.Cars.Include(c => c.CarBrand).Include(c=> c.CarImages).Include(c=>c.Comments);
             return View(await applicationDbContext.ToListAsync());
         }
         public async Task<IActionResult> UploadImage(ImageUploadViewModel uploadModel)

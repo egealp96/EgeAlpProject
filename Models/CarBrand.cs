@@ -13,7 +13,6 @@ namespace EgeAlpProject.Models
         [Required]
         public string Name { get; set; }
         public virtual List<Car> Cars { get; set; }
-
         public virtual List<CarBrandImage> CarBrandImages { get; set; }
 
     }
