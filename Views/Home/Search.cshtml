@@ -78,7 +78,7 @@
                                                                     </div>
                                                                     <div class="cat-cap">
 
-                                                                        <h4>@Html.DisplayFor(modelItem => item.CarBrand.Name) | @item.CarModel | @Html.DisplayFor(modelItem => item.Tansmission) | @Html.DisplayFor(modelItem => item.city)</h4>
+                                                                        <h4>@item.CarBrand.Name | @item.CarModel | @Html.DisplayFor(modelItem => item.Tansmission) | @Html.DisplayFor(modelItem => item.city)</h4>
                                                                         <h6>Daily</h6>
                                                                         <h4>@item.Price USD</h4>
                                                                         <p><a class="btn-outline-dark" asp-controller="Cars" asp-action="Details" asp-route-id="@item.Id">Details</a></p>

@@ -174,29 +174,30 @@
 
                                 <div class="comment-form">
                                     <h3>Leave a Comment</h3>
-                                    <form class="form-contact comment_form" id="commentForm" action="#">
+                                    <form class="form-contact comment_form" id="commentForm" asp-controller="Comments" asp-action="Create">
+                                        <input type="hidden" value="@Model.Id" name="CarId" />
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <input name="name" class="form-control" id="name" type="text" placeholder="Title">
+                                                    <input name="Title" class="form-control" id="name" type="text" placeholder="Title">
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <textarea name="comment" class="form-control w-100" id="comment" placeholder="Write Comment" rows="9" cols="30"></textarea>
+                                                    <textarea name="Detail" class="form-control w-100" id="comment" placeholder="Write Comment" rows="9" cols="30"></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <p>Rating</p>
-                                                    <input name="email" class="form-control" id="email" type="email" placeholder="Rating">
+                                                    <input name="Rating" class="form-control" id="email" type="number" placeholder="Rating">
                                                 </div>
                                             </div>
                                          
                                         </div>
                                         <div class="form-group">
-                                            <button class="button button-contactForm btn_1 boxed-btn" type="submit">Comment</button>
+                                            <button class="button button-contactForm btn_1 boxed-btn" type="submit" >Comment</button>
                                         </div>
                                     </form>
                                 </div>
