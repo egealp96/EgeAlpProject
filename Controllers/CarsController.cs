@@ -64,7 +64,7 @@ namespace EgeAlpProject.Controllers
                 return BadRequest();
             }
 
-            var car = await _context.Cars.Include(b => b.CarImages)
+            var car = await _context.Cars.Include(b => b.CarImages).Include(c=>c.CarBrand)
                 .FirstOrDefaultAsync(b => b.Id == id);
             if (car == null)
             {

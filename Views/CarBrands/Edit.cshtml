@@ -4,6 +4,8 @@
     ViewData["Title"] = "Edit";
 }
 
+<div class="categories-area" style="padding-top:40px ; padding-bottom:40px">
+    <div class="container">
 <h1>Edit</h1>
 
 <h4>CarBrand</h4>
@@ -19,15 +21,16 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <p><button class="btn-outline-dark" asp-action="ManageImage" asp-route-id="@Model.Id">Upload Image</button></p>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn-outline-dark" />
+                <button class="btn-outline-dark" asp-action="Index">Cancel</button>
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</div></div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

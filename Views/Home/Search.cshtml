@@ -12,7 +12,7 @@
         <title>Search Result </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+        <link href="~/assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
         <!-- CSS here -->
         <link href="~/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -30,172 +30,170 @@
     </head>
 
     <body style="overflow: visible;">
-        <!-- Preloader Start -->
-        <div id="preloader-active" style="display: none;">
-            <div class="preloader d-flex align-items-center justify-content-center">
-                <div class="preloader-inner position-relative">
-                    <div class="preloader-circle"></div>
-                    <div class="preloader-img pere-text">
-                        <img alt="" src="~/assets/img/logo/loder.jpg">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Preloader Start -->
+
 
         <main>
-            <!--? slider Area Start-->
-            <!-- slider Area End-->
-            <!--================Blog Area =================-->
-            <section class="blog_area section-padding">
+            <div class="categories-area" style="padding-top:40px">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mb-5 mb-lg-0">
-                            <div class="blog_left_sidebar">
-                                <article class="blog_item">
-                                    <div class="blog_item_img">
-                                        @if (Model?.Results != null)
-                                        {
-                                            <h3> Search Result </h3>
-                                            <h5> @Model.Results.Count Rental Car Found </h5>
 
-                                            <div class="row">
-                                                <table class="table">
-                                                   
-                                                    <tbody>
-                                                        @foreach (var item in Model.Results)
-                                                        {
-                                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                                <div class="single-cat text-center mb-50">
-                                                                    <div class="cat-icon">
-                                                                       
-                                                                        <span>
-                                                                            @{
-                                                                                var imageUrl = item.CarImages?.FirstOrDefault()?.FileName ?? "noimage.jpg";
-                                                                            }
-                                                                            <div class="d-flex flex-column align-items-center justify-content-center"><a class="btn-outline-dark" asp-controller="Cars" asp-action="Details" asp-route-id="@item.Id"><img src="~/UserImages/@imageUrl" alt="" style="width:100%"></a></div>
-                                                                        </span>
+
+                    <section class="blog_area sty">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 mb-5 mb-lg-0">
+                                    <div class="blog_left_sidebar">
+                                        <article class="blog_item">
+                                            <div class="blog_item_img">
+                                                @if (Model?.Results != null)
+                                                {
+                                                    <div class="section-tittle text-center mb-80">
+                                                        <span>Current Car List</span>
+                                                        <h2>Searched Rental Cars</h2>
+                                                        <h3> @Model.Results.Count Rental Car Found </h3>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <table class="table">
+
+                                                            <tbody>
+                                                                @foreach (var item in Model.Results)
+                                                                {
+                                                                    <div class="col-lg-4 col-md-6 col-sm-6">
+                                                                        <div class="single-cat text-center mb-50">
+                                                                            <div class="cat-icon">
+                                                                                <a class="btn-outline-dark" asp-controller="Cars" asp-action="Edit" asp-route-id="@item.Id">Edit</a> <a>|</a>
+                                                                                <a class="btn-outline-dark" asp-controller="Cars" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                                                                <span>
+                                                                                    @{
+                                                                                        var imageUrl = item.CarImages?.FirstOrDefault()?.FileName ?? "noimage.jpg";
+                                                                                    }
+                                                                                    <div class="d-flex flex-column align-items-center justify-content-center"><a class="btn-outline-dark" asp-controller="Cars" asp-action="Details" asp-route-id="@item.Id"><img src="~/UserImages/@imageUrl" alt="" style="width:100%"></a></div>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="cat-cap">
+
+                                                                                <h4>@item.CarBrand.Name | @item.CarModel | @item.Tansmission | @item.city</h4>
+                                                                                <h6>Daily</h6>
+                                                                                <h4>@item.Price USD</h4>
+                                                                                <p><a class="btn-outline-dark" asp-controller="Cars" asp-action="Details" asp-route-id="@item.Id">Details</a></p>
+                                                                                <p><i class="fa fa-comments"></i> @item.Comments.Count Comments</p>
+
+
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="cat-cap">
 
-                                                                        <h4>@item.CarBrand.Name | @item.CarModel | @Html.DisplayFor(modelItem => item.Tansmission) | @Html.DisplayFor(modelItem => item.city)</h4>
-                                                                        <h6>Daily</h6>
-                                                                        <h4>@item.Price USD</h4>
-                                                                        <p><a class="btn-outline-dark" asp-controller="Cars" asp-action="Details" asp-route-id="@item.Id">Details</a></p>
-                                                                       
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                }
 
-                                                                    </div>
-                                                                </div>
-                                                            </div>         
-                                                        }
-                                                    </tbody>
-                                                </table>
                                             </div>
-                                        }
 
+                                            <div class="blog_details">
+                                                <a class="d-inline-block" href="blog_details.html">
+                                                    <h2>Google inks pact for new 35-storey office</h2>
+                                                </a>
+                                                <p>
+                                                    That dominion stars lights dominion divide years for fourth have don't stars is that
+                                                    he earth it first without heaven in place seed it second morning saying.
+                                                </p>
+                                                <ul class="blog-info-link">
+                                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+                                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                                </ul>
+                                            </div>
+                                        </article>
                                     </div>
+                                </div>
 
-                                    <div class="blog_details">
-                                        <a class="d-inline-block" href="blog_details.html">
-                                            <h2>Google inks pact for new 35-storey office</h2>
-                                        </a>
-                                        <p>
-                                            That dominion stars lights dominion divide years for fourth have don't stars is that
-                                            he earth it first without heaven in place seed it second morning saying.
-                                        </p>
-                                        <ul class="blog-info-link">
-                                            <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                            <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                        </ul>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
+                                <div class="col-lg-4">
+                                    <div class="blog_right_sidebar">
+                                        <form asp-action="Search">
+                                            <aside class="single_sidebar_widget search_widget">
+                                                <div class="form-group">
+                                                    <div class="input-group mb-3">
+                                                        <input asp-for="SearchText" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'" type="text" placeholder="Search Keyword">
+                                                        <div class="input-group-append">
+                                                            <button class="btns" type="submit"><i class="ti-search"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group mb-3" style="padding-left:25px">
+                                                        <input class="form-check-input" asp-for="SearchInDescription" /> @Html.DisplayNameFor(model => model.SearchInDescription)
+                                                    </div>
 
-                        <div class="col-lg-4">
-                            <div class="blog_right_sidebar">
-                                <form asp-action="Search">
-                                    <aside class="single_sidebar_widget search_widget">
-                                        <div class="form-group">
-                                            <div class="input-group mb-3">
-                                                <input asp-for="SearchText" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'" type="text" placeholder="Search Keyword">
-                                                <div class="input-group-append">
-                                                    <button class="btns" type="submit"><i class="ti-search"></i></button>
+                                                    <h4 class="widget_title"></h4>
+
+                                                    <div>
+                                                        <h5>Min Price</h5>
+                                                        <ul class="list cat-list" style="padding-bottom:30px">
+                                                            <input type="number" class="form-control" asp-for="MinimumPrice" maxlength="6">
+
+                                                        </ul>
+                                                        <h5>Max Price</h5>
+                                                        <ul class="list cat-list">
+                                                            <input type="number" class="form-control" asp-for="MaximumPrice" maxlength="6">
+                                                        </ul>
+                                                    </div>
+
+                                                    <h4 style="padding-top:20px" class="widget_title"></h4>
+
+                                                    <div>
+                                                        <h5>Car Brand</h5>
+                                                        <ul class="list cat-list">
+                                                            <select asp-for="CarBrandId" class="form-control" asp-items="ViewBag.CarBrandId">
+                                                                <option value=""> All Car Brands </option>
+                                                            </select>
+                                                        </ul>
+                                                    </div>
+                                                    <div style="padding-top:70px"></div>
+                                                    <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Search</button>
+                                                </div>
+                                            </aside>
+                                        </form>
+
+
+                                        <aside class="single_sidebar_widget popular_post_widget">
+                                            <h3 class="widget_title">Recently Visited</h3>
+                                            <div class="media post_item">
+                                                <img alt="post" src="~/assets/img/post/post_1.png">
+                                                <div class="media-body">
+                                                    <a href="blog_details.html">
+                                                        <h3>From life was you fish...</h3>
+                                                    </a>
+                                                    <p>January 12, 2019</p>
                                                 </div>
                                             </div>
-                                            <div class="input-group mb-3" style="padding-left:25px">
-                                                <input class="form-check-input" asp-for="SearchInDescription" /> @Html.DisplayNameFor(model => model.SearchInDescription)
+                                            <div class="media post_item">
+                                                <img alt="post" src="~/assets/img/post/post_4.png">
+                                                <div class="media-body">
+                                                    <a href="blog_details.html">
+                                                        <h3>Asteroids telescope</h3>
+                                                    </a>
+                                                    <p>01 Hours ago</p>
+                                                </div>
                                             </div>
+                                        </aside>
 
-                                            <h4 class="widget_title"></h4>
+                                        <aside class="single_sidebar_widget newsletter_widget">
+                                            <h4 class="widget_title">Newsletter</h4>
 
-                                            <div>
-                                                <h5>Min Price</h5>
-                                                <ul class="list cat-list" style="padding-bottom:30px">
-                                                    <input type="number" class="form-control" asp-for="MinimumPrice" maxlength="6">
-
-                                                </ul>
-                                                <h5>Max Price</h5>
-                                                <ul class="list cat-list">
-                                                    <input type="number" class="form-control" asp-for="MaximumPrice" maxlength="6">
-                                                </ul>
-                                            </div>
-
-                                            <h4 style="padding-top:20px" class="widget_title"></h4>
-
-                                            <div>
-                                                <h5>Car Brand</h5>
-                                                <ul class="list cat-list">
-                                                    <select asp-for="CarBrandId" class="form-control" asp-items="ViewBag.CarBrandId">
-                                                        <option value=""> All Car Brands </option>
-                                                    </select>
-                                                </ul>
-                                            </div>
-                                            <div style="padding-top:70px"></div>
-                                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Search</button>
-                                        </div>
-                                    </aside>
-                                </form>
-
-
-                                <aside class="single_sidebar_widget popular_post_widget">
-                                    <h3 class="widget_title">Recently Visited</h3>
-                                    <div class="media post_item">
-                                        <img alt="post" src="~/assets/img/post/post_1.png">
-                                        <div class="media-body">
-                                            <a href="blog_details.html">
-                                                <h3>From life was you fish...</h3>
-                                            </a>
-                                            <p>January 12, 2019</p>
-                                        </div>
+                                            <form action="#">
+                                                <div class="form-group">
+                                                    <input class="form-control" required="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" type="email" placeholder="Enter email">
+                                                </div>
+                                                <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Subscribe</button>
+                                            </form>
+                                        </aside>
                                     </div>
-                                    <div class="media post_item">
-                                        <img alt="post" src="~/assets/img/post/post_4.png">
-                                        <div class="media-body">
-                                            <a href="blog_details.html">
-                                                <h3>Asteroids telescope</h3>
-                                            </a>
-                                            <p>01 Hours ago</p>
-                                        </div>
-                                    </div>
-                                </aside>
-
-                                <aside class="single_sidebar_widget newsletter_widget">
-                                    <h4 class="widget_title">Newsletter</h4>
-
-                                    <form action="#">
-                                        <div class="form-group">
-                                            <input class="form-control" required="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" type="email" placeholder="Enter email">
-                                        </div>
-                                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Subscribe</button>
-                                    </form>
-                                </aside>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <!--================Blog Area =================-->
+                    </section>
+                  </div>
+                </div><!--================Blog Area =================-->
         </main>
 
         <!-- Scroll Up -->
@@ -239,136 +237,3 @@
 
     </body>
     </html>
-
-
-
-
-
-
-
-
-<div style="padding-left:250px ; padding-top:50px">
-    <h1>Search Result</h1>
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Search">
-                <div class="form-group">
-                    <label asp-for="SearchText" class="control-label"></label>
-                    <input asp-for="SearchText" class="form-control" />
-                </div>
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="SearchInDescription" /> @Html.DisplayNameFor(model => model.SearchInDescription)
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CarBrandId" class="control-label"></label>
-                    <select asp-for="CarBrandId" class="form-control" asp-items="ViewBag.CarBrandId">
-                        <option value=""> All Car Brands </option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="MinimumPrice" class="control-label"></label>
-                    <input type="number" class="form-control" asp-for="MinimumPrice" maxlength="6">
-                    <label asp-for="MaximumPrice" class="control-label"></label>
-                    <input type="number" class="form-control" asp-for="MaximumPrice" maxlength="6">
-                </div>
-
-
-                <div class="form-group">
-                    <input type="submit" value="Ara" class="btn btn-primary" />
-                </div>
-            </form>
-        </div>
-
-    </div>
-    @if (Model?.Results != null)
-    {
-        <h3> Search Result </h3>
-        <h5> @Model.Results.Count Rental Car Found </h5>
-
-        <div class="row">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            Title
-                        </th>
-                        <th>
-                            Car Brand
-                        </th>
-                        <th>
-                            Car Model
-                        </th>
-                        <th>
-                            Model Year
-                        </th>
-                        <th>
-                            Odometer
-                        </th>
-                        <th>
-                            Fuel Type
-                        </th>
-                        <th>
-                            Avg. Consumption
-                        </th>
-                        <th>
-                            Transmission
-                        </th>
-                        <th>
-                            Price
-                        </th>
-                        <th>
-                            City
-                        </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.Results)
-                    {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CarBrand.Name)
-                        </td>
-                        <td>
-                            @item.CarModel
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.year)
-                        </td>
-                        <td>
-                            @item.VehicleKm
-                            @*@Html.DisplayFor(modelItem => item.Price)*@
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FuelType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AvgCons)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Tansmission)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Price)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.city)
-                        </td>
-                        <td>
-                            <a class="btn-outline-dark" asp-area="Cars" asp-controller="Cars" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                        </td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    }
-
-</div>
-

@@ -140,9 +140,10 @@
 
                         <div class="comments-area">
                             <h2>Comments</h2>
+                            <h4>@Model.Comments.Count Comments</h4>
                             @foreach (var item in Model.Comments)
                             {
-                                <h4>@Model.Comments.Count Comments</h4>
+
                                 <div class="comment-list">
                                     <div class="single-comment justify-content-between d-flex">
                                         <div class="user justify-content-between d-flex">
@@ -172,35 +173,35 @@
                             }
 
 
-                                <div class="comment-form">
-                                    <h3>Leave a Comment</h3>
-                                    <form class="form-contact comment_form" id="commentForm" asp-controller="Comments" asp-action="Create">
-                                        <input type="hidden" value="@Model.Id" name="CarId" />
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <input name="Title" class="form-control" id="name" type="text" placeholder="Title">
-                                                </div>
+                            <div class="comment-form">
+                                <h3>Leave a Comment</h3>
+                                <form class="form-contact comment_form" id="commentForm" asp-controller="Comments" asp-action="Create">
+                                    <input type="hidden" value="@Model.Id" name="CarId" />
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input name="Title" class="form-control" id="name" type="text" placeholder="Title">
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <textarea name="Detail" class="form-control w-100" id="comment" placeholder="Write Comment" rows="9" cols="30"></textarea>
-                                                </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <textarea name="Detail" class="form-control w-100" id="comment" placeholder="Write Comment" rows="9" cols="30"></textarea>
                                             </div>
+                                        </div>
 
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <p>Rating</p>
-                                                    <input name="Rating" class="form-control" id="email" type="number" placeholder="Rating">
-                                                </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <p>Rating</p>
+                                                <input name="Rating" class="form-control" id="email" type="number" placeholder="Rating">
                                             </div>
-                                         
                                         </div>
-                                        <div class="form-group">
-                                            <button class="button button-contactForm btn_1 boxed-btn" type="submit" >Comment</button>
-                                        </div>
-                                    </form>
-                                </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="button button-contactForm btn_1 boxed-btn" type="submit">Comment</button>
+                                    </div>
+                                </form>
+                            </div>
 
 
 
@@ -225,93 +226,3 @@
  
 </body>
 </html>
-
-
-<div>
-    <h4>@Model.CarBrand.Name / @Model.CarModel</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CarBrand)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CarBrand.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CarModel)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CarModel)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.year)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.year)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VehicleKm)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VehicleKm)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FuelType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FuelType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.AvgCons)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.AvgCons)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Tansmission)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Tansmission)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.city)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.city)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>

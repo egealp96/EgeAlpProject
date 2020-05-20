@@ -3,38 +3,47 @@
     ViewData["Title"] = "ManageImage";
 }
 
-<h1>Manage Image</h1>
+<div class="categories-area" style="padding-top:40px ; padding-bottom:40px">
+    <div class="container">
+        <h1>Manage Image</h1>
 
-<div>
-    <h4>Car Brand</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+        <div>
+            <h4>Car Brand</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-    </dl>
-    <ul>
+            </dl>
+
+            <ul style="height:350px ; width:300px">
 
 
-        @foreach (var image in Model.CarBrandImages)
-        {
-            <li>
-                @image.FileName
-                <img src="~/CarBrandImages/@image.FileName" />
-            </li>
-        }
-    </ul>
-    <form asp-action="UploadImage" enctype="multipart/form-data">
-        <input type="hidden" name="CarBrandId" id="CarBrandId" value="@Model.Id" />
-        <input type="file" name="ImageFile" id="ImageFile" />
-        <input type="submit" value="Upload" />
-    </form>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+                @foreach (var image in Model.CarBrandImages)
+                {
+
+                    <li>
+                        <img style="height:300px ; width:300px" src="~/CarBrandImages/@image.FileName" />
+                    </li>
+                    <li style="text-align:center">
+                        @image.FileName
+                    </li>
+                }
+            </ul>
+
+            <form asp-action="UploadImage" enctype="multipart/form-data" style="padding-top:20px">
+                <input type="hidden" name="CarId" id="CarId" value="@Model.Id" />
+                <input type="file" name="ImageFile" id="ImageFile" />
+                <input type="submit" value="Upload" />
+            </form>
+        </div>
+        <div style="padding-top:20px">
+            <a class="btn-outline-dark" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+            <a class="btn-outline-dark" asp-action="Index">Save</a>
+        </div>
+    </div>
 </div>

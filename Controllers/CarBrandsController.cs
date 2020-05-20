@@ -28,7 +28,7 @@ namespace EgeAlpProject.Controllers
         // GET: CarBrands
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.CarBrands.Include(c => c.CarBrandImages);
+            var applicationDbContext = _context.CarBrands.Include(c => c.CarBrandImages).Include(c=>c.Cars);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -83,6 +83,7 @@ namespace EgeAlpProject.Controllers
             }
 
             var carbrand = await _context.CarBrands.Include(c => c.Cars).ThenInclude(c=>c.CarImages)
+                .Include(c=>c.Cars).ThenInclude(c=>c.Comments)
                             .FirstOrDefaultAsync(m => m.Id == id);
             if (carbrand == null)
             {

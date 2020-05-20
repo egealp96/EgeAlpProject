@@ -10,6 +10,8 @@ using EgeAlpProject.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using EgeAlpProject.ViewModel;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
+
 
 namespace EgeAlpProject.Controllers
 {
@@ -50,7 +52,8 @@ namespace EgeAlpProject.Controllers
         public async Task<IActionResult> Search(SearchViewModel searchModel)
         {
 
-            IQueryable<Car> cars = _context.Cars.AsQueryable();
+            IQueryable<Car> cars = _context.Cars.AsQueryable().Include(c=>c.CarBrand).
+                Include(c => c.CarImages).Include(c=>c.Comments);
 
             if (!String.IsNullOrWhiteSpace(searchModel.SearchText))
             {
@@ -82,5 +85,6 @@ namespace EgeAlpProject.Controllers
             searchModel.Results = await cars.ToListAsync();
             return View(searchModel);
         }
+
     }
 }
