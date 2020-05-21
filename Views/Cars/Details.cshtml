@@ -158,12 +158,16 @@
                                                 <div class="d-flex justify-content-between">
                                                     <div class="d-flex align-items-center">
                                                         <h5>
-                                                            <a href="#">Emilly Blunt</a>
+                                                            Rating @item.Rating
                                                         </h5>
                                                         <p class="date">@item.CreatedDate</p>
                                                     </div>
                                                     <div class="reply-btn">
-                                                        <a class="btn-reply text-uppercase" href="#">reply</a>
+                                                        <a class="btn-reply text-uppercase" asp-controller="Comments" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                                    </div>
+                                                    
+                                                    <div class="reply-btn">
+                                                        <a class="btn-reply text-uppercase" asp-controller="Comments" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,7 +179,7 @@
 
                             <div class="comment-form">
                                 <h3>Leave a Comment</h3>
-                                <form class="form-contact comment_form" id="commentForm" asp-controller="Comments" asp-action="Create">
+                                <form class="form-contact comment_form" id="commentForm" asp-controller="Comments" asp-action="Create" >
                                     <input type="hidden" value="@Model.Id" name="CarId" />
                                     <div class="row">
                                         <div class="col-sm-6">
