@@ -77,17 +77,17 @@ namespace EgeAlpProject.Controllers
             return View(car);
         }
 
-       //async  Task  AddToVisitedAdds (int Id)
-        //{
-        //    var visitedcar = new VisitedCar();
-        //    visitedcar.SessionId = HttpContext.Session.Id;
-        //    visitedcar.CarId = Id;
-        //    visitedcar.VisitedDate = DateTime.Now;
-        //    _context.VisitedCars.Add(visitedcar);
-         //   await _context.SaveChangesAsync();
+       async  Task  AddToVisitedAdds (int Id)
+        {
+           var visitedcar = new VisitedCar();
+            visitedcar.SessionId = HttpContext.Session.Id;
+            visitedcar.CarId = Id;
+            visitedcar.VisitedDate = DateTime.Now;
+            _context.VisitedCars.Add(visitedcar);
+            await _context.SaveChangesAsync();
 
-          //  List<int> temp = HttpContext.Session.Get["visited"] as List<int> ?? new List<int>();
-       // }
+           // List<int> temp = HttpContext.Session.Get["visited"] as List<int> ?? new List<int>();
+       }
 
         // GET: Cars/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -97,7 +97,7 @@ namespace EgeAlpProject.Controllers
             {
                 return NotFound();
             }
-          //  await AddToVisitedAdds(id.Value);
+           await AddToVisitedAdds(id.Value);
             var car = await _context.Cars
                 .Include(c => c.CarBrand).Include(c=>c.CarImages).Include(c=>c.Comments)
                 .FirstOrDefaultAsync(m => m.Id == id);

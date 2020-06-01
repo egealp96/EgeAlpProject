@@ -58,12 +58,12 @@
                     </div>
                     <div class="form-group">
                         <strong><label class="control-label">Photo of Car</label></strong>
-                        <span>
+                        <div>
                             @{
                                 var imageUrl = @Model.Car.CarImages?.FirstOrDefault()?.FileName ?? "noimage.jpg";
                             }
                             <div class="d-flex flex-column align-items-center justify-content-center"><img src="~/UserImages/@imageUrl" alt="" style="width:600px ; padding-top:10px ; height:430px"></div>
-                        </span>
+                        </div>
                     </div>
 
                 </div>

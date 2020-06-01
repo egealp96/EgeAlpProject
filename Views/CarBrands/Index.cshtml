@@ -34,7 +34,7 @@
                             <div class="single-cat text-center mb-50">
                                 <div class="cat-icon">
                                     <a class="btn-outline-dark" asp-action="Edit" asp-route-id="@carBrand.Id">Edit</a> <a>|</a>
-                                    <a class="btn-outline-dark" asp-action="Delete" asp-route-id="@carBrand.Id">Delete</a>
+                                    <a class="btn-outline-danger" asp-action="Delete" asp-route-id="@carBrand.Id">Delete</a>
                                     <span>
                                         @{
                                             var imageUrl = carBrand.CarBrandImages?.FirstOrDefault()?.FileName ?? "noimage.jpg";

@@ -27,8 +27,7 @@ namespace EgeAlpProject.Controllers
             this.hostEnvironment = hostEnvironment;
         }
 
-        // GET: CarBrands
-        [Authorize]
+
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.CarBrands.Include(c => c.CarBrandImages).Include(c=>c.Cars);
