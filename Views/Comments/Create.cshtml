@@ -28,9 +28,10 @@
                             <input asp-for="Rating" class="form-control" />
                             <span asp-validation-for="Rating" class="text-danger"></span>
                         </div>
-                        <div class="form-group">
-                            <label asp-for="CarId" class="control-label"></label>
-                            <select asp-for="CarId" class="form-control" asp-items="ViewBag.CarId"></select>
+                        <div class="form-group" hidden>
+                            <label hidden asp-for="CarId" class="control-label"></label>
+                            <select hidden asp-for="CarId" class="form-control" asp-items="ViewBag.CarId"></select>
+                            <span hidden asp-validation-for="CarId" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Create" class="btn btn-primary" />

@@ -88,7 +88,7 @@ namespace EgeAlpProject.Controllers
                 return NotFound();
             }
 
-            var comment = await _context.Comments.FindAsync(id);
+            var comment = await _context.Comments.Include(c=>c.Car.CarImages).FirstOrDefaultAsync(m => m.Id == id);
             if (comment == null)
             {
                 return NotFound();
@@ -144,7 +144,7 @@ namespace EgeAlpProject.Controllers
             }
 
             var comment = await _context.Comments
-                .Include(c => c.Car)
+                .Include(c => c.Car).Include(c=>c.Car.CarImages)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comment == null)
             {
