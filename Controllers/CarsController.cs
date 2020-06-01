@@ -10,6 +10,9 @@ using EgeAlpProject.Models;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using EgeAlpProject.ViewModel;
+using System.Data.Entity.Core.Metadata.Edm;
+using RestSharp;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EgeAlpProject.Controllers
 {
@@ -30,6 +33,7 @@ namespace EgeAlpProject.Controllers
             var applicationDbContext = _context.Cars.Include(c => c.CarBrand).Include(c=> c.CarImages).Include(c=>c.Comments);
             return View(await applicationDbContext.ToListAsync());
         }
+        [Authorize]
         public async Task<IActionResult> UploadImage(ImageUploadViewModel uploadModel)
         {
 
@@ -56,7 +60,7 @@ namespace EgeAlpProject.Controllers
         }
 
 
-
+        [Authorize]
         public async Task<IActionResult> ManageImage(int? id)
         {
             if (id == null)
@@ -73,16 +77,27 @@ namespace EgeAlpProject.Controllers
             return View(car);
         }
 
+       //async  Task  AddToVisitedAdds (int Id)
+        //{
+        //    var visitedcar = new VisitedCar();
+        //    visitedcar.SessionId = HttpContext.Session.Id;
+        //    visitedcar.CarId = Id;
+        //    visitedcar.VisitedDate = DateTime.Now;
+        //    _context.VisitedCars.Add(visitedcar);
+         //   await _context.SaveChangesAsync();
 
+          //  List<int> temp = HttpContext.Session.Get["visited"] as List<int> ?? new List<int>();
+       // }
 
         // GET: Cars/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            CardDetailsViewModel cardDetailsViewModel = new CardDetailsViewModel();
             if (id == null)
             {
                 return NotFound();
             }
-
+          //  await AddToVisitedAdds(id.Value);
             var car = await _context.Cars
                 .Include(c => c.CarBrand).Include(c=>c.CarImages).Include(c=>c.Comments)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -90,11 +105,12 @@ namespace EgeAlpProject.Controllers
             {
                 return NotFound();
             }
-
-            return View(car);
+            cardDetailsViewModel.Car = car;
+            return View(cardDetailsViewModel);
         }
 
         // GET: Cars/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["CarBrandId"] = new SelectList(_context.CarBrands, "Id", "Name");
@@ -106,6 +122,7 @@ namespace EgeAlpProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Name,CarBrandId,CarModel,year,VehicleKm,FuelType,AvgCons,Tansmission,Price,Description,city,Location,CreatedDate")] Car car)
         {
             car.CreatedDate = DateTime.Now;
@@ -120,6 +137,7 @@ namespace EgeAlpProject.Controllers
         }
 
         // GET: Cars/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -141,6 +159,7 @@ namespace EgeAlpProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CarBrandId,CarModel,year,VehicleKm,FuelType,AvgCons,Tansmission,Price,Description,city,Location,CreatedDate")] Car car)
         {
             if (id != car.Id)
@@ -173,6 +192,7 @@ namespace EgeAlpProject.Controllers
         }
 
         // GET: Cars/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -194,6 +214,7 @@ namespace EgeAlpProject.Controllers
         // POST: Cars/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var car = await _context.Cars.FindAsync(id);

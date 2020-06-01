@@ -21,28 +21,32 @@ namespace EgeAlpProject.Models
         [Display(Name = "Car Brand")]
         public int CarBrandId { get; set; }
         public CarBrand CarBrand { get; set; }
+        [Required]
         [Display(Name = "Car Model")]
         public string CarModel { get; set; }
-
-        [Display(Name = "Model Year")]
         [Required]
+        [Display(Name = "Model Year")]
         public int year { get; set; }
+        [Required]
         [Display(Name = "Odometer")]
         public int VehicleKm { get; set; }
 
         [Display(Name = "Fuel")]
         public Fueltype FuelType { get; set; }
+        [Required]
         [Display(Name = "Avg Consumption")]
         public int AvgCons { get; set; }
         [Display(Name = "Transmission")]
         public Transmission Tansmission { get; set; }
-
+        [Required]
         [Display(Name = "Daily Price")]
         public Decimal Price { get; set; }
+        [Required]
         [Display(Name = "Details")]
         public string Description { get; set; }
         [Display(Name = "City")]
         public City city { get; set; }
+        [Required]
         [Display(Name = "Location Details")]
         public string Location { get; set; }
 

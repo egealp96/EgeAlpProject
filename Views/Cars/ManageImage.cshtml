@@ -25,20 +25,21 @@
                     </dd>
 
                 </dl>
-                <ul style="height:250px ; width:400px">
 
 
-                    @foreach (var image in Model.CarImages)
-                    {
 
+                @foreach (var image in Model.CarImages)
+                {
+                    <ul style="height:250px ; width:400px">
                         <li>
                             <img style="height:200px ; width:400px" src="~/UserImages/@image.FileName" />
                         </li>
                         <li style="text-align:center">
                             @image.FileName
                         </li>
-                    }
-                </ul>
+                    </ul>
+                }
+
 
 
                 <form asp-action="UploadImage" enctype="multipart/form-data" style="padding-top:20px">

@@ -49,8 +49,8 @@
 
             <form asp-action="Delete">
                 <input type="hidden" asp-for="Id" />
-                <input asp-controller="Cars" asp-action="Details" asp-route-id="@Model.CarId" type="submit" value="Delete" class="btn-outline-dark" />
-                <button asp-controller="Cars" asp-action="Details" asp-route-id="@Model.CarId" class="btn-outline-dark" asp-action="Index">Cancel</button>
+                <input type="submit" value="Delete" class="btn-outline-dark" />
+                <a asp-controller="Cars" asp-action="Details" asp-route-id="@Model.CarId" class="btn-outline-dark" >Cancel</a>
             </form>
         </div>
         </div>

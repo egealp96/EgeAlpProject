@@ -10,12 +10,14 @@ using EgeAlpProject.Models;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using EgeAlpProject.ViewModel;
+using System.Data.Entity.Core.Metadata.Edm;
+using RestSharp;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EgeAlpProject.Controllers
 {
     public class CarBrandsController : Controller
     {
-
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment hostEnvironment;
 
@@ -26,19 +28,19 @@ namespace EgeAlpProject.Controllers
         }
 
         // GET: CarBrands
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.CarBrands.Include(c => c.CarBrandImages).Include(c=>c.Cars);
             return View(await applicationDbContext.ToListAsync());
         }
-
+        [Authorize]
         public async Task<IActionResult> UploadImage(ImageUploadViewModel2 uploadModel)
         {
 
             //string directory= @"C:\Users\Huseyin\source\repos\CetBookStore\CetBookStore\wwwroot\UserImages\";
             string directory = Path.Combine(hostEnvironment.WebRootPath, "CarBrandImages");
-            string fileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName( uploadModel.ImageFile.FileName);
-
+            string fileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(uploadModel.ImageFile.FileName);
             string fullPath = Path.Combine(directory, fileName);
 
             using (var fileStream = new FileStream(fullPath, FileMode.Create))
@@ -57,6 +59,7 @@ namespace EgeAlpProject.Controllers
 
 
         }
+        [Authorize]
         public async Task<IActionResult> ManageImage(int? id)
         {
             if (id == null)
@@ -92,7 +95,7 @@ namespace EgeAlpProject.Controllers
 
             return View(carbrand);
         }
-
+        [Authorize]
         // GET: CarBrands/Create
         public IActionResult Create()
         {
@@ -104,6 +107,7 @@ namespace EgeAlpProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Name")] CarBrand carBrand)
         {
             if (ModelState.IsValid)
@@ -116,6 +120,7 @@ namespace EgeAlpProject.Controllers
         }
 
         // GET: CarBrands/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -136,6 +141,7 @@ namespace EgeAlpProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] CarBrand carBrand)
         {
             if (id != carBrand.Id)
@@ -167,6 +173,7 @@ namespace EgeAlpProject.Controllers
         }
 
         // GET: CarBrands/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -187,6 +194,7 @@ namespace EgeAlpProject.Controllers
         // POST: CarBrands/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var carBrand = await _context.CarBrands.FindAsync(id);

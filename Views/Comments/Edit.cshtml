@@ -46,8 +46,8 @@
                             <span asp-validation-for="CarId" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <input asp-controller="Cars" asp-action="Details" asp-route-id="@Model.CarId" type="submit" value="Save" class="btn-outline-dark" />
-                            <button class="btn-outline-dark" asp-controller="Cars" asp-action="Details" asp-route-id="@Model.CarId">Cancel</button>
+                            <input type="submit" value="Save" class="btn-outline-dark" />
+                            <a class="btn-outline-dark" asp-controller="Cars" asp-action="Details" asp-route-id="@Model.CarId">Cancel</a>
                         </div>
                     </form>
                 </div>

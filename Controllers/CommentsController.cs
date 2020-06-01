@@ -9,6 +9,10 @@ using EgeAlpProject.Data;
 using EgeAlpProject.Models;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using EgeAlpProject.ViewModel;
+using System.Data.Entity.Core.Metadata.Edm;
+using RestSharp;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EgeAlpProject.Controllers
 {
@@ -50,6 +54,7 @@ namespace EgeAlpProject.Controllers
         }
 
         // GET: Comments/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["CarId"] = new SelectList(_context.Cars, "Id", "Name");
@@ -60,7 +65,7 @@ namespace EgeAlpProject.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-       
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Title,Detail,Rating,CreatedDate,CarId")] Comment comment)
         {
             comment.CreatedDate = DateTime.Now;
@@ -68,12 +73,13 @@ namespace EgeAlpProject.Controllers
             {
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction( "Details", "Cars",comment.CarId);
             }
             ViewData["CarId"] = new SelectList(_context.Cars, "Id", "Name", comment.CarId);
             return View(comment);
         }
 
+        [Authorize]
         // GET: Comments/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -96,6 +102,7 @@ namespace EgeAlpProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Detail,Rating,CreatedDate,CarId")] Comment comment)
         {
             if (id != comment.Id)
@@ -128,6 +135,7 @@ namespace EgeAlpProject.Controllers
         }
 
         // GET: Comments/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -149,6 +157,7 @@ namespace EgeAlpProject.Controllers
         // POST: Comments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var comment = await _context.Comments.FindAsync(id);

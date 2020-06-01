@@ -1,7 +1,7 @@
-﻿@model EgeAlpProject.Models.Car
+﻿@model EgeAlpProject.ViewModel.CardDetailsViewModel
 
 @{
-    ViewData["Title"] = Model.Name;
+    ViewData["Title"] = Model.Car.Name;
 }
 
 <html class="js sizes no-customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox picture srcset webworkers" lang="zxx">
@@ -32,85 +32,85 @@
                             <!-- Section Tittle -->
                             <div class="section-tittle mb-35">
                                 <a asp-action="Index"><h4>Back to List</h4></a>
-                                <span>@Model.CarBrand.Name / @Model.CarModel / @Model.city</span>
-                                <h2>@Model.Name</h2>
+                                <span>@Model.Car.CarBrand.Name / @Model.Car.CarModel / @Model.Car.city</span>
+                                <h2>@Model.Car.Name</h2>
                             </div>
                             <dl class="row">
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.Name)
+                                    @Html.DisplayNameFor(model => model.Car.Name)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.Name)
+                                    @Html.DisplayFor(model => model.Car.Name)
                                 </dd>
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.CarBrand)
+                                    @Html.DisplayNameFor(model => model.Car.CarBrand)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.CarBrand.Name)
+                                    @Html.DisplayFor(model => model.Car.CarBrand.Name)
                                 </dd>
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.CarModel)
+                                    @Html.DisplayNameFor(model => model.Car.CarModel)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.CarModel)
+                                    @Html.DisplayFor(model => model.Car.CarModel)
                                 </dd>
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.year)
+                                    @Html.DisplayNameFor(model => model.Car.year)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.year)
+                                    @Html.DisplayFor(model => model.Car.year)
                                 </dd>
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.VehicleKm)
+                                    @Html.DisplayNameFor(model => model.Car.VehicleKm)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.VehicleKm)
+                                    @Html.DisplayFor(model => model.Car.VehicleKm)
                                 </dd>
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.FuelType)
+                                    @Html.DisplayNameFor(model => model.Car.FuelType)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.FuelType)
+                                    @Html.DisplayFor(model => model.Car.FuelType)
                                 </dd>
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.AvgCons)
+                                    @Html.DisplayNameFor(model => model.Car.AvgCons)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.AvgCons) mpg
+                                    @Html.DisplayFor(model => model.Car.AvgCons) mpg
                                 </dd>
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.Tansmission)
+                                    @Html.DisplayNameFor(model => model.Car.Tansmission)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.Tansmission)
+                                    @Html.DisplayFor(model => model.Car.Tansmission)
                                 </dd>
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.Description)
+                                    @Html.DisplayNameFor(model => model.Car.Description)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.Description)
+                                    @Html.DisplayFor(model => model.Car.Description)
                                 </dd>
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.city)
+                                    @Html.DisplayNameFor(model => model.Car.city)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.city)
+                                    @Html.DisplayFor(model => model.Car.city)
                                 </dd>
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.Location)
+                                    @Html.DisplayNameFor(model => model.Car.Location)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.Location)
+                                    @Html.DisplayFor(model => model.Car.Location)
                                 </dd>
                                 <dt class="col-sm-3">
-                                    @Html.DisplayNameFor(model => model.CreatedDate)
+                                    @Html.DisplayNameFor(model => model.Car.CreatedDate)
                                 </dt>
                                 <dd class="col-sm-9">
-                                    @Html.DisplayFor(model => model.CreatedDate)
+                                    @Html.DisplayFor(model => model.Car.CreatedDate)
                                 </dd>
                             </dl>
                             <p></p>
-                            <span class="btn">Daily Price @Html.DisplayFor(model => model.Price) USD</span>
+                            <span class="btn">Daily Price @Html.DisplayFor(model => model.Car.Price) USD</span>
                             <a class="btn" href="about.html">Go For Rent</a>
                         </div>
                     </div>
@@ -120,9 +120,9 @@
                             <div class="about-font-img">
                                 <span>
                                     @{
-                                        var imageUrl = @Model.CarImages?.FirstOrDefault()?.FileName ?? "noimage.jpg";
+                                        var imageUrl = @Model.Car.CarImages?.FirstOrDefault()?.FileName ?? "noimage.jpg";
                                     }
-                                    <div class="d-flex flex-column align-items-center justify-content-center"><img src="~/UserImages/@imageUrl" alt="" style="width:150%"></div>
+                                    <div class="d-flex flex-column align-items-center justify-content-center"><img src="~/UserImages/@imageUrl" alt="" style="width:600px ; padding-top:50px ; height:430px"></div>
                                 </span>
                             </div>
 
@@ -140,8 +140,8 @@
 
                         <div class="comments-area">
                             <h2>Comments</h2>
-                            <h4>@Model.Comments.Count Comments</h4>
-                            @foreach (var item in Model.Comments)
+                            <h4>@Model.Car.Comments.Count Comments</h4>
+                            @foreach (var item in Model.Car.Comments)
                             {
 
                                 <div class="comment-list">
@@ -180,7 +180,7 @@
                             <div class="comment-form">
                                 <h3>Leave a Comment</h3>
                                 <form class="form-contact comment_form" id="commentForm" asp-controller="Comments" asp-action="Create" >
-                                    <input type="hidden" value="@Model.Id" name="CarId" />
+                                    <input type="hidden" value="@Model.Car.Id" name="CarId" />
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
@@ -202,7 +202,7 @@
 
                                     </div>
                                     <div class="form-group">
-                                        <button class="button button-contactForm btn_1 boxed-btn" type="submit">Comment</button>
+                                        <button class="button button-contactForm btn_1 boxed-btn" type="submit" value="submit">Comment</button>
                                     </div>
                                 </form>
                             </div>

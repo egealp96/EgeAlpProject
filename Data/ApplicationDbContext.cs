@@ -25,6 +25,7 @@ namespace EgeAlpProject.Data
         public DbSet<CarImage> CarImages { get; set; }
 
         public DbSet<CarBrandImage> CarBrandImages { get; set; }
+        public DbSet<VisitedCar> VisitedCars { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
     : base(options)
