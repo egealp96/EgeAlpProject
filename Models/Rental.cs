@@ -11,12 +11,20 @@ namespace EgeAlpProject.Models
 
         public int Id { get; set; }
 
-        [Required]
+        public int CarId { get; set; }
+
         public Car Car { get; set; }
 
         public DateTime DateRented { get; set; }
 
         public DateTime? DateReturned { get; set; }
 
+        public DateTime CreatedDate { get; set; }
+        public decimal TotalPrice { get; set; }
+
+        public Rental()
+        {
+            CreatedDate = DateTime.Now;
+        }
     }
 }

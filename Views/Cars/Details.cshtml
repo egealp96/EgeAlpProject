@@ -111,7 +111,26 @@
                             </dl>
                             <p></p>
                             <span class="btn">Daily Price @Html.DisplayFor(model => model.Car.Price) USD</span>
-                            <a class="btn" href="about.html">Go For Rent</a>
+                            
+                            <form style="margin-top:20px" id="rentals" asp-controller="Rentals" asp-action="Create">
+                                <input type="hidden" value="@Model.Car.Id" name="CarId" />
+                                <dl class="row">
+                                    <dt class="col-sm-2">
+                                        Date Rented
+                                    </dt>
+                                    <dd style="margin-top:10px" class="col-sm-10">
+                                        <input name="DateRented" id="date" type="date">
+                                    </dd>
+                                    <dt style="margin-top:10px" class="col-sm-2">
+                                        Date Returned
+                                    </dt>
+                                    <dd style="margin-top:20px" class="col-sm-10">
+                                        <input name="DateReturned" id="date" type="date">
+                                    </dd>
+                                </dl>
+
+                                    <button class="btn" type="submit" value="submit">Go For Rent</button>
+                            </form>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12" style="padding-top:150px">

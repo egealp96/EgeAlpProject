@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using EgeAlpProject.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
-
+using System.Diagnostics.Eventing.Reader;
 
 namespace EgeAlpProject.Controllers
 {
@@ -30,7 +30,9 @@ namespace EgeAlpProject.Controllers
 
         public IActionResult Index()
         {
+           
             return View();
+
         }
 
         public IActionResult Privacy()
@@ -47,6 +49,15 @@ namespace EgeAlpProject.Controllers
         {
             ViewData["CarBrandId"] = new SelectList(_context.CarBrands, "Id", "Name");
             return View();
+        }
+
+
+        public async Task<IActionResult> RecentlyVisited()
+        {
+            var cars = _context.VisitedCars.Where(x => x.SessionId == HttpContext.Session.Id).Include(x => x.Car).Include(x=>x.Car.CarBrand).Include(x=>x.Car.Comments).Include(x=>x.Car.CarImages).OrderByDescending(x => x.VisitedDate).Take(9).Select(x => x.Car).ToList();
+            HomePageViewModel model = new HomePageViewModel();
+            model.VisitedCars = cars;
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> Search(SearchViewModel searchModel)

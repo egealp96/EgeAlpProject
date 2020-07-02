@@ -79,6 +79,7 @@ namespace EgeAlpProject.Controllers
 
        async  Task  AddToVisitedAdds (int Id)
         {
+            HttpContext.Session.Set("test", new byte[] {1 });
            var visitedcar = new VisitedCar();
             visitedcar.SessionId = HttpContext.Session.Id;
             visitedcar.CarId = Id;

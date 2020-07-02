@@ -10,7 +10,7 @@ namespace EgeAlpProject.Models
         public int Id { get; set; }
         public int CarId { get; set; }
         public string SessionId { get; set; }
-
+        public virtual Car Car { get; set; }
         public DateTime VisitedDate { get; set; }
     }
 }

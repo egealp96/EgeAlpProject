@@ -446,4 +446,9 @@ C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
-C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_RecentlyVisitedCarsPartial.cshtml.g.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Rentals\Create.cshtml.g.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Rentals\Delete.cshtml.g.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Rentals\Details.cshtml.g.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Rentals\Edit.cshtml.g.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Rentals\Index.cshtml.g.cs
+C:\Users\Ege ALP\Desktop\EgeAlpProject\EgeAlpProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\RecentlyVisited.cshtml.g.cs
