@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EgeAlpProject.Data;
 using EgeAlpProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EgeAlpProject.Controllers
 {
+    [Authorize]
     public class RentalsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,7 +24,7 @@ namespace EgeAlpProject.Controllers
         // GET: Rentals
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Rentals.Include(r => r.Car);
+            var applicationDbContext = _context.Rentals.Include(r => r.Car).OrderByDescending(r=>r.CarId);
             return View(await applicationDbContext.ToListAsync());
         }
 

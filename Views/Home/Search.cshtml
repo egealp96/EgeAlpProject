@@ -44,14 +44,18 @@
                                     <div class="blog_left_sidebar">
                                         <article class="blog_item">
                                             <div class="blog_item_img">
+                                                <div class="section-tittle text-center mb-80">
+                                                    <span>Current Car List</span>
+                                                    <h2>Searched Rental Cars</h2>
+                                                    @if (Model?.Results == null)
+                                                    {
+                                                        <h3>Search for seeing cars.</h3>
+                                                    }
+                                                </div>
                                                 @if (Model?.Results != null)
                                                 {
-                                                    <div class="section-tittle text-center mb-80">
-                                                        <span>Current Car List</span>
-                                                        <h2>Searched Rental Cars</h2>
-                                                        <h3> @Model.Results.Count Rental Car Found </h3>
-                                                    </div>
 
+                                                    <h3> @Model.Results.Count Rental Car Found </h3>
 
                                                     <div class="row">
                                                         <table class="table">
@@ -74,7 +78,7 @@
                                                                             <div class="cat-cap">
 
                                                                                 <h4>@item.CarBrand.Name | @item.CarModel</h4>
-                                                                                                                        <h4>@item.city</h4>
+                                                                                <h4>@item.city</h4>
                                                                                 <h6>Daily</h6>
                                                                                 <h4>@item.Price USD</h4>
                                                                                 <p><a class="btn-outline-dark" asp-controller="Cars" asp-action="Details" asp-route-id="@item.Id">Details</a></p>
@@ -93,19 +97,7 @@
 
                                             </div>
 
-                                            <div class="blog_details">
-                                                <a class="d-inline-block" href="blog_details.html">
-                                                    <h2>Google inks pact for new 35-storey office</h2>
-                                                </a>
-                                                <p>
-                                                    That dominion stars lights dominion divide years for fourth have don't stars is that
-                                                    he earth it first without heaven in place seed it second morning saying.
-                                                </p>
-                                                <ul class="blog-info-link">
-                                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                                </ul>
-                                            </div>
+
                                         </article>
                                     </div>
                                 </div>
@@ -156,38 +148,8 @@
                                         </form>
 
 
-                                        <aside class="single_sidebar_widget popular_post_widget">
-                                            <h3 class="widget_title">Recently Visited</h3>
-                                            <div class="media post_item">
-                                                <img alt="post" src="~/assets/img/post/post_1.png">
-                                                <div class="media-body">
-                                                    <a href="blog_details.html">
-                                                        <h3>From life was you fish...</h3>
-                                                    </a>
-                                                    <p>January 12, 2019</p>
-                                                </div>
-                                            </div>
-                                            <div class="media post_item">
-                                                <img alt="post" src="~/assets/img/post/post_4.png">
-                                                <div class="media-body">
-                                                    <a href="blog_details.html">
-                                                        <h3>Asteroids telescope</h3>
-                                                    </a>
-                                                    <p>01 Hours ago</p>
-                                                </div>
-                                            </div>
-                                        </aside>
 
-                                        <aside class="single_sidebar_widget newsletter_widget">
-                                            <h4 class="widget_title">Newsletter</h4>
 
-                                            <form action="#">
-                                                <div class="form-group">
-                                                    <input class="form-control" required="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" type="email" placeholder="Enter email">
-                                                </div>
-                                                <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Subscribe</button>
-                                            </form>
-                                        </aside>
                                     </div>
                                 </div>
                             </div>

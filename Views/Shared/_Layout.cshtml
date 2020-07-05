@@ -86,10 +86,7 @@
                                                 <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                                                 <li> <a asp-area="" asp-controller="Cars" asp-action="Index">Cars</a></li>
                                                 <li><a asp-area="" asp-controller="CarBrands" asp-action="Index">Car Brands</a></li>
-                                                <li>
-                                                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 
-                                                </li>
                                                 <li>
                                                     <a asp-area="" asp-controller="Home" asp-action="RecentlyVisited">Recently Visited</a>
 
@@ -159,10 +156,8 @@
                                 <div class="footer-tittle">
                                     <h4>COMPANY</h4>
                                     <ul>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Company</a></li>
-                                        <li><a href="#"> Press &amp; Blog</a></li>
-                                        <li><a href="#"> Privacy Policy</a></li>
+                                        <partial name="_LoginPartial" />
+
                                     </ul>
                                 </div>
                             </div>
@@ -183,13 +178,13 @@
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>RESOURCES</h4>
+                                    <h4>MAIN PAGES</h4>
                                     <ul>
-                                        <li><a href="#">Home Insurance</a></li>
-                                        <li><a href="#">Travel Insurance</a></li>
-                                        <li><a href="#"> Car Insurance</a></li>
-                                        <li><a href="#"> Business Insurance</a></li>
-                                        <li><a href="#"> Heal Insurance</a></li>
+                                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                                        <li><a asp-controller="Cars" asp-action="Index">Cars</a></li>
+                                        <li><a asp-controller="CarBrands" asp-action="Index">Car Brands</a></li>
+                                        <li><a asp-controller="Home" asp-action="RecentlyVisited">Recently Visited</a></li>
+                                        <li><a asp-controller="Home" asp-action="Privacy">Privacy Policy</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -198,19 +193,19 @@
                             <div class="single-footer-caption mb-50">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img style="width:100%" alt="" src="~/ImagesForProject/Logo.png" s></a>
+                                    <a asp-controller="Home" asp-action="Index"><img style="width:100%" alt="" src="~/ImagesForProject/Logo.png" s></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
-                                        <p class="info1">GThe trade war currently ensuing between te US anfd several natxions around thdhe globe, most fiercely with.</p>
+                                        <p class="info1">With this site, everyone can rent their own car as they wish.</p>
                                     </div>
                                 </div>
                                 <!-- Footer Social -->
                                 <div class="footer-social ">
-                                    <a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fas fa-globe"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a ><i class="fab fa-facebook-f"></i></a>
+                                    <a ><i class="fab fa-twitter"></i></a>
+                                    <a ><i class="fas fa-globe"></i></a>
+                                    <a ><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
